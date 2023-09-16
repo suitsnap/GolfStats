@@ -1,3 +1,5 @@
+<!-- player.php -->
+
 <?php include('navbar.php'); ?>
 <!DOCTYPE html>
 <html>
@@ -6,13 +8,7 @@
     <meta charset="UTF-8">
     <title>Golfstats</title>
     <link rel="icon" href="./assets/favicon.ico" />
-
-
     <script src="https://bs-community.github.io/skinview3d/js/skinview3d.bundle.js"></script>
-
-
-
-    <!-- Add CSS styles for the viewer container (customize as needed) -->
     <style>
         #player-skin-viewer {
             width: 300px;
@@ -22,7 +18,6 @@
 </head>
 
 <body>
-
     <?php
     if (isset($_GET['player_name'])) {
         $playerName = $_GET['player_name'];
@@ -43,12 +38,12 @@
             echo "<h1>Error: Unable to fetch player data.</h1>";
         } else {
             $playerData = json_decode($response, true);
-            $playerUUID = $playerData['id'];
-            $playerUsername = $playerData['name'];
 
             if ($playerData === null || !isset($playerData['id'])) {
                 echo "<h1>Player Not Found</h1>";
             } else {
+                $playerUUID = $playerData['id'];
+                $playerUsername = $playerData['name'];
                 echo "<h1> $playerUsername's MCCI Statistics</h1>
                 <canvas id='skin' width='300' height='600'></canvas>
                 <script>

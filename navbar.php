@@ -1,6 +1,5 @@
 <!-- navbar.php -->
 <?php
-// Include any necessary PHP logic here
 ?>
 
 <head>
